@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		630F445523143DA4009A0045 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630F445423143DA4009A0045 /* CloudKit.framework */; };
+		630F445723144191009A0045 /* HypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630F445623144191009A0045 /* HypeTableViewController.swift */; };
+		630F44592314423E009A0045 /* Hype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630F44582314423E009A0045 /* Hype.swift */; };
 		63985387231438C60015A46B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63985386231438C60015A46B /* AppDelegate.swift */; };
 		6398538C231438C60015A46B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6398538A231438C60015A46B /* Main.storyboard */; };
 		6398538E231438CA0015A46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6398538D231438CA0015A46B /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* Begin PBXFileReference section */
 		630F445223143D9D009A0045 /* Hype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hype.entitlements; sourceTree = "<group>"; };
 		630F445423143DA4009A0045 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		630F445623144191009A0045 /* HypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeTableViewController.swift; sourceTree = "<group>"; };
+		630F44582314423E009A0045 /* Hype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hype.swift; sourceTree = "<group>"; };
 		63985383231438C60015A46B /* Hype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63985386231438C60015A46B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6398538B231438C60015A46B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 				630F445223143D9D009A0045 /* Hype.entitlements */,
 				63985386231438C60015A46B /* AppDelegate.swift */,
 				6398538A231438C60015A46B /* Main.storyboard */,
+				630F445623144191009A0045 /* HypeTableViewController.swift */,
+				630F44582314423E009A0045 /* Hype.swift */,
 				6398538D231438CA0015A46B /* Assets.xcassets */,
 				6398538F231438CA0015A46B /* LaunchScreen.storyboard */,
 				63985392231438CA0015A46B /* Info.plist */,
@@ -155,6 +161,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				63985387231438C60015A46B /* AppDelegate.swift in Sources */,
+				630F445723144191009A0045 /* HypeTableViewController.swift in Sources */,
+				630F44592314423E009A0045 /* Hype.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
