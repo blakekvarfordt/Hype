@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630F445523143DA4009A0045 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630F445423143DA4009A0045 /* CloudKit.framework */; };
 		63985387231438C60015A46B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63985386231438C60015A46B /* AppDelegate.swift */; };
 		6398538C231438C60015A46B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6398538A231438C60015A46B /* Main.storyboard */; };
 		6398538E231438CA0015A46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6398538D231438CA0015A46B /* Assets.xcassets */; };
@@ -14,6 +15,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		630F445223143D9D009A0045 /* Hype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hype.entitlements; sourceTree = "<group>"; };
+		630F445423143DA4009A0045 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		63985383231438C60015A46B /* Hype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63985386231438C60015A46B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6398538B231438C60015A46B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -27,17 +30,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				630F445523143DA4009A0045 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		630F445323143DA4009A0045 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				630F445423143DA4009A0045 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6398537A231438C60015A46B = {
 			isa = PBXGroup;
 			children = (
 				63985385231438C60015A46B /* Hype */,
 				63985384231438C60015A46B /* Products */,
+				630F445323143DA4009A0045 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,6 +65,7 @@
 		63985385231438C60015A46B /* Hype */ = {
 			isa = PBXGroup;
 			children = (
+				630F445223143D9D009A0045 /* Hype.entitlements */,
 				63985386231438C60015A46B /* AppDelegate.swift */,
 				6398538A231438C60015A46B /* Main.storyboard */,
 				6398538D231438CA0015A46B /* Assets.xcassets */,
@@ -93,6 +107,14 @@
 				TargetAttributes = {
 					63985382231438C60015A46B = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -278,6 +300,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hype/Hype.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83YG3ZQCH4;
 				INFOPLIST_FILE = Hype/Info.plist;
@@ -296,6 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hype/Hype.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83YG3ZQCH4;
 				INFOPLIST_FILE = Hype/Info.plist;
