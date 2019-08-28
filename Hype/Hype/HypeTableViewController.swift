@@ -13,8 +13,24 @@ class HypeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        configureRefreshControl()
     }
 
+    func configureRefreshControl () {
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl?.addTarget(self, action:
+            #selector(handleRefreshControl),
+                                                  for: .valueChanged)
+    }
+    
+    @objc func handleRefreshControl() {
+        loadData()
+
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
+    
     func loadData() {
         HypeController.shared.fetchDemHypes { (success) in
             if success {
@@ -24,7 +40,7 @@ class HypeTableViewController: UITableViewController {
             }
         }
     }
-    func addAlert() {
+    func addAlert(hype: Hype?) {
         // create alert controller
         let alertController = UIAlertController(title: "Get Hype", message: "Hype is up sir!", preferredStyle: .alert)
         // add text field to controller
@@ -36,9 +52,18 @@ class HypeTableViewController: UITableViewController {
             // get text from text field
             guard let text = alertController.textFields?.first?.text else { return }
             // actually add hype if there is text
-            if text != ""{
+            if text != "" && hype == nil {
                 // This is a closure so it will be on a background thread
                 HypeController.shared.saveHype(with: text, completion: { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                })
+            } else {
+                guard let hype = hype else { return }
+                HypeController.shared.update(hype: hype, with: text, completion: { (success) in
                     if success {
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
@@ -70,13 +95,34 @@ class HypeTableViewController: UITableViewController {
         let hype = HypeController.shared.hypes[indexPath.row]
         
         cell.textLabel?.text = hype.text
-        cell.detailTextLabel?.text = "\(hype.timestamp)"
+        let date = DateHelper.shared.mediumStringFor(date: hype.timestamp)
+        cell.detailTextLabel?.text = date
 
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let hype = HypeController.shared.hypes[indexPath.row]
+        addAlert(hype: hype)
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let hype = HypeController.shared.hypes[indexPath.row]
+            HypeController.shared.remove(hype: hype) { (success) in
+                if success == true {
+                    DispatchQueue.main.async {
+                        self.tableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                }
+            }
+        }
+    }
+    
+    
     @IBAction func addButtonTapped(_ sender: Any) {
-        addAlert()
+        addAlert(hype: nil)
     }
 
 }
